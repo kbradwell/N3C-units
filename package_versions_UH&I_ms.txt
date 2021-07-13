@@ -1,0 +1,12 @@
+software	version
+arrow-cpp	0.15.1
+conversionslib	0.1.1
+numpy	1.19.5
+palantir-spark-time	2.4.1
+pandas	1.1.5
+parquet-cpp	1.5.1
+pyarrow	0.15.1
+pyspark	3.0.0
+python-dateutil	2.8.1
+python	3.6.10
+scipy	1.5.3
