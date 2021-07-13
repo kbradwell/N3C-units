@@ -8,4 +8,4 @@ Start with the OMOP measurement table and filter down to just rows with value_as
 The pipeline implemented on the patient data can be found in the scripts beginning with PIPELINE
 
 ## Software versions
-Versions of software used for validation and pipeline steps is found in the file package_versions_UH&I_ms.txt
+Versions of software used for validation and pipeline steps are found in the file package_versions_UH&I_ms.txt
