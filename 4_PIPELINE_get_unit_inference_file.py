@@ -41,7 +41,7 @@ def my_compute_function(inferred_unit_calc, canonicals_table):
     df_inferred_unit_calc = inferred_unit_calc
 
     df_inferred_unit_calc = df_inferred_unit_calc \
-        .filter(F.col("KSpvalue") >= 0.00002) \
+        .filter(F.col("KSpvalue") > 0.00001) \
         .withColumn("inferred_unit_concept_name", F.split(F.col("units"), "~").getItem(0)) \
         .withColumn("inferred_unit_concept_id", F.split(F.col("units"), "~").getItem(1))
 
