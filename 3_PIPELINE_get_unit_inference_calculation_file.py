@@ -12,12 +12,19 @@ import pyspark
 @configure(profile=['NUM_EXECUTORS_16', 'EXECUTOR_MEMORY_LARGE'])
 @transform_df(
     Output("/PATH/inferred_units_calculation"),
-    codesetsLookup=Input("/PATH/concept_set_members"),
-    measurements=Input("/PATH/measurement"),
-    variables=Input("/PATH/canonical_units_of_measure")
+    codesetsLookup=Input("/{PATH}/concept_set_members"),
+    measurements=Input("/{PATH}/measurement"),
+    variables=Input("/{PATH}/canonical_units_of_measure")
 
 )
 def my_compute_function(variables, measurements, codesetsLookup, ctx):
+    
+    '''
+    ---- OVERALL OBJECTIVE -------------------------------------------------------------------------------------------
+    PERFORM K-S TESTS ON VALUES FOR A SITE'S LAB TEST THAT ARE MISSING UNITS TO DETERMINE THE CORRECT UNIT THAT SHOULD 
+    BE ASSIGNED.
+
+    '''
 
     concepts = variables.join(codesetsLookup, 'codeset_id', 'inner')
     measurements_with_codesets = measurements.join(concepts, measurements.measurement_concept_id == concepts.concept_id, 'inner')
